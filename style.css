@@ -1,0 +1,140 @@
+:root {
+    --firstCard: crimson;
+    --secondCard: rgb(255, 153, 0);
+    --thirdCard: rgb(0, 255, 238);
+    --fourthCard: rgb(60, 0, 255);
+}
+html {
+    font-size: 16px;
+}
+@font-face {
+    font-family:Jost ;
+    src: url("Jost-Italic-VariableFont_wght.ttf")  format(true type font);
+}
+* {
+    margin: 0;
+    padding:0;
+   box-sizing: border-box;
+   font-family: Jost;
+}
+body {
+    width: 100%;
+    height: 100vh;
+    background-color: #ccc;
+    /* the part coming for making the content in the center of the page */
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+.container {
+    margin: 0 2rem;
+     width: 15rem; 
+     height:20rem ;
+     background-color: #efefef;
+     border-radius: 1.5rem;
+     padding: 3rem 1.8rem;
+     border: .3rem solid white;
+     position: relative;
+     text-align: center;
+     box-shadow: .1rem .1rem .5rem rgb(180, 180, 180),
+-.1rem -.1rem .5rem rgb(180, 180, 180);
+
+}
+.container span {
+    width: 20rem;
+    height: 20rem;
+    background-color: var(--secondCard);
+    position: absolute;
+    top: 0;
+    left: 0;
+    clip-path:polygon(50% 0, 100% 100%, 0 100%);
+
+}
+.container h1 {
+    font-size: 1.8rem;
+}
+.container p {
+    font-size: 1.5rem;
+    width: 100%;
+}
+/* the background of before , after, h1 and i elements only will change if you want three cards with different colors */
+.container::before {
+    content: "STEP 01";
+    position: absolute;
+    width: 15rem;
+    height: 26rem;
+    background-color: var(--firstCard);
+    border-radius: 1.5rem;
+    left: -2rem;
+    top: -2rem;
+    z-index: -1;
+    display: grid;
+    text-align: center;
+font-size: 1.1rem;
+color: white;
+font-weight: bold;
+     box-shadow: 0 .4rem .6rem rgb(117, 117, 117);
+}
+.container:nth-child(1)::before,
+.container:nth-child(1) i {
+    background-color: var(--firstCard);
+}
+.container:nth-child(2)::before,
+.container:nth-child(2) i {
+    background-color: var(--secondCard);
+}
+.container:nth-child(3)::before,
+.container:nth-child(3) i {
+    background-color: var(--thirdCard);
+}
+.container:nth-child(4)::before,
+.container:nth-child(4) i {
+    background-color: var(--fourthCard);
+}
+.container:nth-child(1)::after {
+    border-top: 3rem solid var(--firstCard);
+}
+.container:nth-child(2)::after {
+    border-top: 3rem solid var(--secondCard);
+}
+.container:nth-child(3)::after {
+    border-top: 3rem solid var(--thirdCard);
+}
+.container:nth-child(4)::after {
+    border-top: 3rem solid var(--fourthCard);
+}
+.container:nth-child(1) h1 {
+    color: var(--firstCard);
+}
+.container:nth-child(2) h1 {
+    color: var(--secondCard);
+}
+.container:nth-child(3) h1 {
+    color: var(--thirdCard);
+}
+.container:nth-child(4) h1 {
+    color: var(--fourthCard);
+}
+.container::after {
+    content: "";
+    position: absolute;
+    width: 10rem;
+    height: 0;
+    border-left: 3rem solid transparent;
+    border-right: 3rem solid transparent;
+    z-index: 0;
+    border-left-color: transparent;
+    transform: rotate(-90deg);
+    top:5rem;
+    right: 6.5rem;
+}
+.container  i {
+    position: absolute;
+color: white;
+bottom: .2rem;
+right: 0.2rem;
+font-size: 2rem;
+background-color: var(--firstCard);
+padding: 0.7rem .5rem;
+border-radius: 50%;
+}
